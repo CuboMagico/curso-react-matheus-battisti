@@ -1,26 +1,15 @@
 {
   "projects": [
     {
-      "name": "Teste",
-      "budget": "6000",
+      "name": "PC center",
+      "budget": "10000",
       "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
+        "id": "2",
+        "name": "Design"
       },
       "cost": 0,
       "services": [],
       "id": 1
-    },
-    {
-      "name": "Teste",
-      "budget": "6000",
-      "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 2
     }
   ],
   "categories": [

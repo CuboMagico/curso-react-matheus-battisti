@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
 
 import styles from "./NewProject.module.css"
 
@@ -16,7 +15,7 @@ const NewProject = () => {
 
         const fetchPost = async () => {
             try {
-                const data = fetch("http://localhost:5000/projects",
+                fetch("http://localhost:5000/projects",
                     {
                         method : "POST",
                         headers : {
@@ -26,7 +25,7 @@ const NewProject = () => {
                     }
                 ).then()
     
-                navigate("/projetos", { message : "Projeto criado com sucesso!" })
+                navigate("/projetos", { state : { message : "Projeto criado com sucesso!" } })
             
             } catch (error) {
                 console.log(error)
