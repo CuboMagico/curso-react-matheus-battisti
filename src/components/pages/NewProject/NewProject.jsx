@@ -13,9 +13,9 @@ const NewProject = () => {
         project.cost = 0
         project.services = []
 
-        const fetchPost = async () => {
+        const postProject = async () => {
             try {
-                fetch("http://localhost:5000/projects",
+                await fetch("http://localhost:5000/projects",
                     {
                         method : "POST",
                         headers : {
@@ -32,7 +32,7 @@ const NewProject = () => {
             }
         }
         
-        fetchPost()
+        postProject()
 
     }
 

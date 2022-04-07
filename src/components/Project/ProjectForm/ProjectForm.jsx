@@ -30,20 +30,20 @@ const ProjectForm = ({ btnText, handleSubmit, projectData }) => {
         })
     }
 
-    const categoriesRequest = async () => {
+    const getCategories = async () => {
         const data = await fetch("http://localhost:5000/categories", {
             method: "GET",
             headers: {
-                "Content-type": "application/json"
+                "Content-Type": "application/json"
             }
         }).then()
         const json = await data.json()
-        console.log("entrou")
+
         setCategories(json)
     }
 
     useEffect(() => {
-        categoriesRequest()
+        getCategories()
     }, [])
 
     return (
