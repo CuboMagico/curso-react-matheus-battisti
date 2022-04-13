@@ -2,10 +2,10 @@
   "projects": [
     {
       "name": "PC center",
-      "budget": "10000",
+      "budget": "14000",
       "category": {
-        "id": "2",
-        "name": "Design"
+        "id": "3",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],

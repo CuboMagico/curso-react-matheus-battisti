@@ -5,6 +5,7 @@ import About from "./components/pages/About"
 import Contact from "./components/pages/Contact"
 import Projects from "./components/pages/Projects/Projects"
 import NewProject from "./components/pages/NewProject/NewProject"
+import Project from "./components/pages/Project/Project"
 
 import Container from "./components/layout/Container/Container"
 import Navbar from "./components/layout/Navbar/Navbar"
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/sobre" element={<About />} />
 					<Route path="/projetos" element={<Projects />} />
 					<Route path="/novoprojeto" element={<NewProject />} />
+					<Route path="/projeto/:id" element={<Project />} />
 				</Routes>
 			</Container>
 

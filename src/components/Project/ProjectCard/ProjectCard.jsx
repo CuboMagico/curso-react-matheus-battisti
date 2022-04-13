@@ -13,10 +13,10 @@ const ProjectCard = ({ project }) => {
                 <span>Orçamento:</span> R${project.budget}
             </p>
             <p className={`${styles.category_text}`}>
-                <span className={`${styles[project.category.name.toLowerCase()] }`}></span> {project.category.name}
+                <span className={`${styles[project.category.name.toLowerCase()]}`}></span> {project.category.name}
             </p>
             <div className={`${styles.project_card_actions}`}>
-                <Link to="/"><BsPencil />Editar</Link>
+                <Link to={`/projeto/${project.id}`}><BsPencil />Editar</Link>
                 <button><BsFillTrashFill />Remover</button>
             </div>
         </div>
