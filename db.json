@@ -2,13 +2,26 @@
   "projects": [
     {
       "name": "PC center",
-      "budget": "14000",
+      "budget": "3000",
       "category": {
         "id": "3",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 2100,
+      "services": [
+        {
+          "name": "Meu serviço",
+          "cost": "100",
+          "description": "Ele faz tal coisa",
+          "id": "9c5535e7-d8ad-403f-a4ce-059a5a930c44"
+        },
+        {
+          "name": "Aws Amazon",
+          "cost": "2000",
+          "description": "Valor referente a assinatura de tantos meses",
+          "id": "df445ae5-6d0a-4f7c-b4f2-33280bcd24bf"
+        }
+      ],
       "id": 1
     },
     {
