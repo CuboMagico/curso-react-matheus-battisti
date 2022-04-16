@@ -12,6 +12,7 @@ import Message from "../../layout/Message/Message"
 import ProjectForm from "../../Project/ProjectForm/ProjectForm"
 
 import ServiceForm from "../../Service/ServiceForm/ServiceForm"
+import ServiceCard from "../../Service/ServiceCard/ServiceCard"
 
 
 const Project = () => {
@@ -24,6 +25,7 @@ const Project = () => {
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState({});
 
+    
     const getProject = async () => {
         const data = await fetch(`http://localhost:5000/projects/${id}`,{
             method : "GET",
@@ -36,6 +38,7 @@ const Project = () => {
         setProject(json)
         setServices(json.services)
     }
+
 
     const updateProject = async (project, successMessage = {body : "Projeto atualizado com sucesso", type : "success"}) => {
         
@@ -65,17 +68,18 @@ const Project = () => {
 
     }
 
+
     const toggleProjectForm = () => {
         setShowProjectForm(!showProjectForm)
     }
+
 
     const toggleServiceForm = () => {
         setShowServiceForm(!showServiceForm)
     }
 
-    const createService = (project) => {
 
-        setMessage({})
+    const createService = (project) => {
 
         const lastService = project.services[project.services.length - 1]
     
@@ -92,14 +96,31 @@ const Project = () => {
 
         project.cost = newCost
 
+        setShowServiceForm(false)
         updateProject(project, {body : "Serviço adicionado com sucesso!", type : "success"})
     }
+
+
+    const removeService = ({id, cost}) => {
+        const servicesUpdated = project.services.filter((service) => service.id !== id)
+
+        const projectUpdated = project
+
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost -= parseFloat(cost)
+
+        setProject(projectUpdated)
+        setServices(servicesUpdated)
+        updateProject(project, {body : "Serviço removido com sucesso", type : "success"})
+    }
+
     
     useEffect(() => {
         setTimeout(() => {
             getProject()
         }, 1000)
     }, [id])
+    
 
     return (
         <div className={`${styles.project_details}`}>
@@ -147,15 +168,9 @@ const Project = () => {
 
                     <h2>Serviços</h2>
                     <Container customClass="start">
-                        {services ? services.map((service) => (
-                                <div>
-                                    <h2>{service.name}</h2>
-                                    <p>{service.description}</p>
-                                </div>
-                                
-                            )) : (
-                            <p>Não há serviços cadastrados</p>
-                        )}
+                        {services ? services.map((service) => 
+                            (<ServiceCard service={service} handleRemove={removeService} />))
+                        : <p>Não há serviços cadastrados</p>}
                     </Container>
                 </Container>
             ) : (

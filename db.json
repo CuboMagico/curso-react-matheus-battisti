@@ -7,19 +7,25 @@
         "id": "3",
         "name": "Desenvolvimento"
       },
-      "cost": 2100,
+      "cost": 3000,
       "services": [
-        {
-          "name": "Meu serviço",
-          "cost": "100",
-          "description": "Ele faz tal coisa",
-          "id": "9c5535e7-d8ad-403f-a4ce-059a5a930c44"
-        },
         {
           "name": "Aws Amazon",
           "cost": "2000",
           "description": "Valor referente a assinatura de tantos meses",
           "id": "df445ae5-6d0a-4f7c-b4f2-33280bcd24bf"
+        },
+        {
+          "name": "Contratar dev PHP",
+          "cost": "500",
+          "description": "Criação de sistema de envio de emails",
+          "id": "313e4e2a-c176-4268-aaea-b2efc1b82755"
+        },
+        {
+          "name": "Ux designer",
+          "cost": "500",
+          "description": "Contratação de Ux para criação de duas telas",
+          "id": "2f21e9a9-deea-4f21-9b3d-279baf0a2fa3"
         }
       ],
       "id": 1
@@ -56,28 +62,6 @@
       "cost": 0,
       "services": [],
       "id": 4
-    },
-    {
-      "name": "Bebidas",
-      "budget": "123123",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
-    },
-    {
-      "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
-      },
-      "name": "Kaboom",
-      "budget": "800",
-      "cost": 0,
-      "services": [],
-      "id": 6
     }
   ],
   "categories": [

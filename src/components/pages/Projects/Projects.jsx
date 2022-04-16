@@ -16,6 +16,7 @@ const Projects = () => {
 
     const [projects, setProjects] = useState([])
     const [loading, setLoading] = useState(true)
+    const [flash, setFlash] = useState()
 
     const getProjects = async () => {
         const data = await fetch("http://localhost:5000/projects", {
@@ -29,6 +30,18 @@ const Projects = () => {
 
         setProjects(json)
         setLoading(false)
+    }
+
+    const removeProject = async id => {
+        await fetch(`http://localhost:5000/projects/${id}`, {
+            method : "DELETE",
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        }).then()
+
+        setProjects(projects.filter(project => project.id !== id))
+        setFlash("Projeto removido com sucesso")
     }
     
     const location = useLocation()
@@ -53,12 +66,12 @@ const Projects = () => {
                 <LinkButton to="/novoprojeto" text="Criar projeto" />
             </div>
 
-            {message && <Message message={message} type="success" /> }
+            {message && <Message message={message} type="success" />}
+            {flash && <Message message={flash} type="success" />}
 
             <Container customClass="start">
                 {projects.length > 0 &&
-                    projects.map((project) => <ProjectCard project={project}
-                    />)
+                    projects.map((project) => <ProjectCard project={project} handleRemove={removeProject} />)
                 }
 
                 {loading && <Loading />}
